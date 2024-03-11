@@ -1,28 +1,38 @@
 {%extends "base.html"%}
 
 {%block content%}
+<div class="form_body">
+    <h1>FREE LEAKED PASSWORD CHECK</h1>
+    <br><br>
+    <h3>Check Credentials</h3>
+    <form action="" method="post">
+        <div>
+            {{form.email(class_="input")}}
+        </div>
+        <div>
+            {{form.passwrd(class_="input")}}
+        </div>
+        
+        <div >
+            {{form.submit(class_="checkbut")}}
+        </div>
+    </form>
+</div>
 
-<h2>Check Credentials</h2>
-<form action="" method="post">
-    <p>
-        {{form.email.label}}
-        {{form.email}}
-    </p>
-    <p>
-        {{form.passwrd.label}}
-        {{form.passwrd}}
-    </p>
-    <p>
-        {{form.submit()}}
-    </p>
-    {% with messages = get_flashed_messages() %}
+{% with messages = get_flashed_messages() %}
     {% if messages %}
         {% for msg in messages %}
-            <p>{{msg}}</p>
+            {%if msg=="found"%} 
+                <div class="found">
+                    <p>found div</p>
+                </div>
+            {%else%}
+                <div class="notfound">
+                    <p>not found div</p>
+                </div>
+            {%endif%}
         {% endfor %}
     {% endif %}
 {% endwith %}
-</form>
-
 
 {%endblock%}

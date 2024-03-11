@@ -4,9 +4,9 @@ from wtforms.validators import DataRequired,Email
 
 
 class checkLeakForm(FlaskForm):
-    email = EmailField("Email",[DataRequired(),Email()])
-    passwrd=PasswordField("Password", [DataRequired()])
-    submit=SubmitField("Check")
+    email = EmailField("Email",[DataRequired(),Email()],render_kw={"placeholder":"Enter Email"})
+    passwrd=PasswordField("Password", [DataRequired()],render_kw={"placeholder":"Enter Password"})
+    submit=SubmitField("<< CHECK NOW >>")
 
 
 

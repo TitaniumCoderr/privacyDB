@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
 </head>
 <body>
-    <h1>Welcome to PRIVACY DB</h1>
+    <header>
+        <img class="logo" src="{{url_for('static',filename='images/privacyDB.png')}}" alt="logo">
+        <nav class="nav_links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href=""><button>Contact</button></a>
+    </header>
+    
 
     {%block content%}
     {%endblock%}
+
+    <footer>
+        <footer>
+            <div class="footer-content">
+                <h3>privacyDB</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo iste corrupti doloribus odio sed!</p>
+            </div>
+            <div class="footer-bottom">
+                <p>copyright &copy;2024 privacyDB. designed by <span>Giovanne Pinto</span></p>
+            </div>
+    </footer>
 </body>
 </html>
