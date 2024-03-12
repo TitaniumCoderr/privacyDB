@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
 
-
+body, html {
+    overflow: auto; /* Ensure scrolling is enabled */
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 
 }
-h1{
-    color:#a90000 ;
+.form_body h1{
+    color:white ;
 }
 h3{
-    color: #a90000;
+    color: white;
 }
 li, a{
     font-family: "Monsterrat", sans-serif;
@@ -65,9 +67,19 @@ button{
 button:hover{
     background-color:  rgb(12, 23, 97);
 }
+#shield{
+    display: flex;
+}
+#shield img{
+    height: 45px;
+    width: 45px;
+}
+#shield p{
+    padding-top: 16px;
+    color: white;
+}
 /*-------------------------------------------------FOOTER-----------------------------------------------*/
 footer{
-    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -77,6 +89,7 @@ footer{
     font-family: "Open Sans";
     padding-top: 20px;
     color: #fff;
+    margin-top: auto;
 }
 .footer-content{
     display: flex;
@@ -139,7 +152,7 @@ footer{
 
 /*-----------------------------------------------------FORM BODY---------------------------------------------------------*/
 .form_body{
-    background-image: url("../static/images/background.jpg");
+    background-image: url("../static/images/tback.jpg");
     
     background-color: rgb(255, 255, 255);
     background-blend-mode: multiply;
@@ -148,6 +161,12 @@ footer{
     padding-top: 25px;
     padding-bottom: 25px;
     
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 form>div{
     padding-top: 5px;
@@ -158,17 +177,85 @@ input{
 }
 .checkbut{
     background-color: #a90000;
-    width: 25em;
     padding: 1px,3px,1px,3px;
     color: white;
     border: none;
     border-radius: 5px;
 }
 .checkbut:hover{
-    background-color: #c92929
+    background-color: #c94040;
+    cursor: pointer;
+
 }
 .input{
-    height: 2.7em;
-    width: 25em;
-    border-color: #a90000;
+    width: 15em;
+    height: 2em;
+    border-radius: 15px;
+    padding: 20px;
+    
+}
+/*-----------------------------------results-----------------*/
+.notfound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    
+}
+.time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+
+}
+.time img{
+    height: 30px;
+    width: 30px;
+}
+.time span{
+    margin-left: 10px;
+}
+.found{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+#credfound{
+    background-color: red;
+    padding: 6px;
+    color: white;
+
+}
+#crednfound{
+    background-color: rgb(36, 238, 50);
+    padding: 6px;
+}
+
+/*---------------------------------desktop---------------*/
+@media only screen and (min-width:768px){
+    .input{
+        width: 25em;
+        height: 3.5em;
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    .checkbut{
+        background-color: #c92929;
+        width: 25em;
+    }
+
+    .content{
+        padding: 1px 10%;
+    }
+    #c1_body p {
+        margin-bottom: 20px; /* Adjust the margin as needed */
+    }
+   
+    
 }

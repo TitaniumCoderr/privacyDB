@@ -3,6 +3,7 @@ from flask import render_template,request,flash,redirect,url_for
 from mainApp.forms import checkLeakForm
 import mysql.connector 
 import hashlib
+import time
 
 def hash_value(value):
     sha256 = hashlib.sha384()
@@ -18,11 +19,14 @@ def home():
     if request.method=="POST":
         email = hash_value(form.email.data)
         passwrd = hash_value(form.passwrd.data)
-        found = checkDB(email, passwrd)
+        found,time = checkDB(email, passwrd)
+        time= round(time,3)
         if found==1:
             flash("found")
+            flash(str(time))
         else:
             flash("Not found")
+            flash(str(time))
     
     
     return render_template('home.html',form=form)
@@ -37,14 +41,16 @@ def checkDB(email, passwrd):
     #cursor object 
     
     mycursor=mydb.cursor(buffered=True)
-
+    
     sql= "select email,password from users where email= %s and password=%s limit 1"
     val=(email,passwrd)
+    start=time.time()
     mycursor.execute(sql,val)
+    end=time.time()
     rowcount=mycursor.rowcount
 
     mycursor.close()
     mydb.close()
 
-    return rowcount
+    return [rowcount,end-start]
 

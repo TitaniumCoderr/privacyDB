@@ -4,7 +4,7 @@
 <div class="form_body">
     <h1>FREE LEAKED PASSWORD CHECK</h1>
     <br><br>
-    <h3>Check Credentials</h3>
+    <h3>Check Credentials with privacyDB</h3>
     <form action="" method="post">
         <div>
             {{form.email(class_="input")}}
@@ -16,23 +16,46 @@
         <div >
             {{form.submit(class_="checkbut")}}
         </div>
+        <br>
     </form>
+    <div id="shield">
+        <img class="logo" src="{{url_for('static',filename='images/shield.png')}}" alt="logo">
+        <p>Safe and Secure</p>
+    </div>
 </div>
 
 {% with messages = get_flashed_messages() %}
     {% if messages %}
-        {% for msg in messages %}
-            {%if msg=="found"%} 
-                <div class="found">
-                    <p>found div</p>
-                </div>
-            {%else%}
-                <div class="notfound">
-                    <p>not found div</p>
-                </div>
-            {%endif%}
-        {% endfor %}
+        
+        {%if messages[0]=="found"%} 
+            <div class="found">
+                <span id="credfound"><b>!!!CREDENTIALS COMPROMISED!!!</b></span>
+                
+            </div>
+        {%else%}
+            <div class="notfound">
+                <span id="crednfound"><b>!!!CREDENTIALS SECURED!!!</b></span>
+                
+            </div>
+        {%endif%}
+        <div class="time">
+            <img class="logo" src="{{url_for('static',filename='images/timer.png')}}" alt="logo">
+            <span>Query Speed: {{messages[1]}} secs</span>
+        </div>
     {% endif %}
 {% endwith %}
+<div class="content">
+    <div id="content1">
+        <h1>The Importance of Password Security</h1>
+        <div id="c1_body">
+            <p>In today's digital age, password security is more crucial than ever. With cyber threats on the rise and hackers constantly developing new techniques, the risks associated with breached passwords cannot be overstated. </p>
+            <p>Shockingly, hackers leaked over 721 million passwords last year alone. This staggering number underscores the pervasive nature of cyber threats and the importance of robust password security measures.</p>
+            <p>The consequences of a breached password extend far beyond compromised accounts. Hackers can use stolen credentials to access sensitive personal information, such as contact details, full names, and birthdays, which can pave the way for identity theft. Once criminals gain access to personal data, they can exploit it to access financial accounts, tax documents, and other confidential information.</p>
+            <p>Implementing password monitoring tools and practices is crucial for detecting and mitigating the risks associated with breached passwords. By receiving timely notifications when passwords are exposed, individuals can take swift action to protect their accounts and identity.</p>
 
+        </div>
+        
+    </div>
+    
+</div>
 {%endblock%}
